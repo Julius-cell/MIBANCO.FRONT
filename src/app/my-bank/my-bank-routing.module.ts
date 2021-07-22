@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewComponent } from './new/new.component';
 import { HomeComponent } from './home/home.component';
+import { TransferComponent } from './transfer/transfer.component';
+import { HistorialComponent } from './historial/historial.component';
 
 const routes: Routes = [
   {
@@ -9,6 +11,8 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'new', component: NewComponent },
+      { path: 'transfer', component: TransferComponent },
+      { path: 'historial', component: HistorialComponent },
       { path: '**', redirectTo: 'new' }
     ]
   }

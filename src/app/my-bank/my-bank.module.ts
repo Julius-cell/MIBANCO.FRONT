@@ -7,6 +7,8 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { MyBankRoutingModule } from './my-bank-routing.module';
 import { NewComponent } from './new/new.component';
 import { SharedModule } from '../shared/shared.module';
+import { TransferComponent } from './transfer/transfer.component';
+import { HistorialComponent } from './historial/historial.component';
 
 
 
@@ -14,6 +16,8 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     HomeComponent,
     NewComponent,
+    TransferComponent,
+    HistorialComponent,
   ],
   imports: [
     CommonModule,

@@ -13,9 +13,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      { label: 'Nuevo Destinatario', icon: 'pi pi-fw pi-user-plus', routerLink: ['/new'] },
-      { label: 'Transferir', icon: 'pi pi-fw pi-credit-card', routerLink: ['/transfer'] },
-      { label: 'Historial', icon: 'pi pi-fw pi-calendar', routerLink: ['/historial'] },
+      { label: 'Nuevo Destinatario', icon: 'pi pi-fw pi-user-plus', routerLink: ['/my-bank/new'] },
+      { label: 'Transferir', icon: 'pi pi-fw pi-credit-card', routerLink: ['/my-bank/transfer'] },
+      { label: 'Historial', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-bank/historial'] },
     ];
   }
 
