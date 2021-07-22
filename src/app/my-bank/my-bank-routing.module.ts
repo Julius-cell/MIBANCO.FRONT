@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewComponent } from './new/new.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -8,8 +8,8 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: '**', redirectTo: 'dashboard' }
+      { path: 'new', component: NewComponent },
+      { path: '**', redirectTo: 'new' }
     ]
   }
 ];

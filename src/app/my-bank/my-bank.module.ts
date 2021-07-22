@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 import { PrimengModule } from '../primeng/primeng.module';
 import { MyBankRoutingModule } from './my-bank-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewComponent } from './new/new.component';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -13,7 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     HomeComponent,
-    DashboardComponent,
+    NewComponent,
   ],
   imports: [
     CommonModule,
