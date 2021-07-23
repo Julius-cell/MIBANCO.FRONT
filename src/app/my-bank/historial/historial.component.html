@@ -1,1 +1,29 @@
-<p>historial works!</p>
+<div class="wrapper">
+  <h1>Historial</h1>
+
+  <div class="table-wrapper">
+    <p-table [columns]="cols" [value]="transfers" [resizableColumns]="true" [paginator]="true" [rows]="10">
+      <ng-template pTemplate="header">
+        <tr>
+          <th *ngFor="let col of cols" [style]="col.width" class="text-center">
+            {{col.label}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-transfer let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+              {{transfer[col.field]}}
+          </td>
+      </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length" class="text-center">
+            No se han hecho transferencias
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
