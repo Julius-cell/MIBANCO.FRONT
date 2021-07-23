@@ -1,1 +1,39 @@
-<p>dashboard works!</p>
+<div class="wrapper">
+  <h1>Nuevo Destinatario</h1>
+
+  <div class="p-fluid grid input-wrapper">
+    <div class="col-6">
+      <label for="rut">RUT</label>
+      <input type="text" id="rut" pInputText>
+    </div>
+    <div class="col-6 md-6">
+      <label for="name">Nombre</label>
+      <input type="text" id="name" pInputText>
+    </div>
+    <div class="col-6 md-6">
+      <label for="mail">Correo</label>
+        <input type="text" id="mail" pInputText>
+    </div>
+    <div class="col-6 md-6">
+      <label for="mail">Telefono</label>
+      <p-inputNumber id="mail" [useGrouping]="false"></p-inputNumber>
+    </div>
+    <div class="col-6 md-6">
+      <label for="bank">Banco</label>
+      <p-dropdown placeholder="Select a Bank" id="bank" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="col-6 md-6">
+      <label for="account">Tipo de cuenta</label>
+      <input type="text" id="account" pInputText>
+    </div>
+    <div class="col-6 md-6">
+      <label for="numberAccount">N° de cuenta</label>
+      <p-inputNumber id="numberAccount" [useGrouping]="false"></p-inputNumber>
+    </div>
+  </div>
+
+  <div class="flex justify-content-center">
+    <p-button label="Crear"></p-button>
+  </div>
+
+</div>
