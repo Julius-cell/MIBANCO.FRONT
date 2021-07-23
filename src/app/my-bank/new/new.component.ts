@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Bank } from 'src/app/shared/models/bank';
+import { BankService } from '../services/bank.service';
 
 @Component({
   selector: 'app-new',
@@ -7,8 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  public banks: Bank[] = [];
 
-  ngOnInit(): void {}
+  constructor(private bankService: BankService) { }
+
+  ngOnInit(): void { 
+    this.loadBanks();
+  }
+
+  loadBanks() {
+    this.bankService.getBanks().subscribe(res => {
+      this.banks = res;
+    }, (err: Error) => {
+      console.log(err.message);
+    });
+  }
 
 }
