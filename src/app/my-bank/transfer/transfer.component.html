@@ -1,1 +1,36 @@
-<p>transfer works!</p>
+<div class="wrapper">
+  <h1>Transferir</h1>
+
+  <div class="p-fluid input-wrapper">
+    <div class="col-6">
+      <label for="search">Buscar Destinatario</label>
+      <input type="text" id="search" pInputText>
+    </div>
+    <div class="col-7">
+      <h2>Detalle del destinatario</h2>
+      <div class="grid">
+        <div class="col-6">
+          <p>Nombre</p>
+          <p>Correo</p>
+          <p>Banco</p>
+          <p>Tipo de cuenta</p>
+        </div>
+        <div class="col-6">
+          <p>: Julio</p>
+          <p>: correo</p>
+          <p>: Banco estado</p>
+          <p>: Corriente</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <label for="amount">Monto</label>
+      <p-inputNumber mode="currency" currency="CLP" prefix="$"></p-inputNumber>
+    </div>
+  </div>
+
+  <div class="flex justify-content-center">
+    <p-button label="Transferir"></p-button>
+  </div>
+
+</div>
