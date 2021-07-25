@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Bank } from 'src/app/shared/models/bank';
+import { User } from 'src/app/shared/models/user';
 import { BankService } from '../services/bank.service';
 
 @Component({
@@ -35,6 +36,19 @@ export class NewComponent implements OnInit {
     }, (err: Error) => {
       console.log(err.message);
     });
+  }
+
+  createUser() {
+    const user = this.getUserFormData();
+    this.bankService.createUser(user).subscribe(res => {
+     console.log(res);
+    }, (err: Error) => {
+      console.log(err);
+    });
+  }
+
+  getUserFormData(): User {
+    return this.userForm.value;
   }
 
 }
