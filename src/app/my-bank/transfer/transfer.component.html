@@ -4,7 +4,7 @@
   <div class="p-fluid input-wrapper">
     <div class="col-6">
       <label for="search">Buscar Destinatario</label>
-      <input type="text" id="search" pInputText>
+      <p-autoComplete [suggestions]="userSuggestions" (completeMethod)="search($event.query)" field="name" [minLength]="1"></p-autoComplete>
     </div>
     <div class="col-7">
       <h2>Detalle del destinatario</h2>
