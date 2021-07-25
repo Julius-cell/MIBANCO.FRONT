@@ -25,5 +25,9 @@ export class BankService {
     return this.http.post<User>(`${this.baseUrl}v1/user`, userData);
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}v1/user`)
+    .pipe(pluck('data'));
+  }
 
 }
