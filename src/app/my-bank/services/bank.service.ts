@@ -21,7 +21,7 @@ export class BankService {
   }
 
   createUser(userData: any): Observable<any[]> {
-    return this.http.post<any[]>(`${this.baseUrl}/v1/user`, userData);
+    return this.http.post<any[]>(`${this.baseUrl}v1/user`, userData);
   }
 
 
