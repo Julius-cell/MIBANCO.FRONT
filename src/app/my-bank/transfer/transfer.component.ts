@@ -19,8 +19,6 @@ export class TransferComponent implements OnInit {
   }
 
   search(event: string) {
-    console.log(event);
-    console.log(this.users);
     this.userSuggestions = this.users.filter(user => {
       return user.name.includes(event);
     })
