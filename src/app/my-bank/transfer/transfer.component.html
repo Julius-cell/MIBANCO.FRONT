@@ -4,7 +4,7 @@
   <div class="p-fluid input-wrapper">
     <div class="col-6">
       <label for="search">Buscar Destinatario</label>
-      <p-autoComplete [suggestions]="userSuggestions" (completeMethod)="search($event.query)" field="name" [minLength]="1"></p-autoComplete>
+      <p-autoComplete [suggestions]="userSuggestions" (completeMethod)="search($event.query)" field="name" [minLength]="1" (onSelect)="setUserSelectedDetails($event)"></p-autoComplete>
     </div>
     <div class="col-7">
       <h2>Detalle del destinatario</h2>
@@ -16,10 +16,10 @@
           <p>Tipo de cuenta</p>
         </div>
         <div class="col-6">
-          <p>: Julio</p>
-          <p>: correo</p>
-          <p>: Banco estado</p>
-          <p>: Corriente</p>
+          <p>: {{userSelected?.name | titlecase}}</p>
+          <p>: {{userSelected?.email}}</p>
+          <p>: {{userSelected?.bank?.name | titlecase}}</p>
+          <p>: {{userSelected?.account | titlecase}}</p>
         </div>
       </div>
     </div>

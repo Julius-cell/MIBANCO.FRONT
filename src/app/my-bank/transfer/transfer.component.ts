@@ -11,7 +11,8 @@ export class TransferComponent implements OnInit {
 
   public users: User[] = [];
   public userSuggestions: User[] = [];
-  
+  public userSelected!: User;
+
   constructor(private bankService: BankService) { }
 
   ngOnInit(): void {
@@ -23,11 +24,16 @@ export class TransferComponent implements OnInit {
       return user.name.includes(event);
     })
   }
-  
+
   getUsers() {
     this.bankService.getUsers().subscribe(res => {
       this.users = res;
     });
+  }
+
+  setUserSelectedDetails(event: User) {
+    this.userSelected = event;
+    console.log(this.userSelected);
   }
 
 }

@@ -14,7 +14,7 @@ export class NewComponent implements OnInit {
   public userForm = this.fb.group({
     rut: [''],
     name: [''],
-    mail: [''],
+    email: [''],
     phone: [''],
     bank: [],
     account: [''],
