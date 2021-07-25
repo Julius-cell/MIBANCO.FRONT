@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { HistorialComponent } from './historial/historial.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,8 @@ import { HistorialComponent } from './historial/historial.component';
     PrimengModule,
     MyBankRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [
     HomeComponent
