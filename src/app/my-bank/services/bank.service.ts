@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 import { Bank } from 'src/app/shared/models/bank';
+import { User } from 'src/app/shared/models/user';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -20,8 +21,8 @@ export class BankService {
     .pipe(pluck('banks'));
   }
 
-  createUser(userData: any): Observable<any[]> {
-    return this.http.post<any[]>(`${this.baseUrl}v1/user`, userData);
+  createUser(userData: User): Observable<User> {
+    return this.http.post<User>(`${this.baseUrl}v1/user`, userData);
   }
 
 
