@@ -24,9 +24,9 @@ export class NewComponent implements OnInit {
   public banks: Bank[] = [];
 
   constructor(private bankService: BankService,
-              private fb: FormBuilder) { }
+    private fb: FormBuilder) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.loadBanks();
   }
 
@@ -41,14 +41,20 @@ export class NewComponent implements OnInit {
   createUser() {
     const user = this.getUserFormData();
     this.bankService.createUser(user).subscribe(res => {
-     console.log(res);
+      console.log(res);
     }, (err: Error) => {
       console.log(err);
     });
   }
 
   getUserFormData(): User {
+    const bankName = this.userForm.controls.bank.value.name;
+    this.userForm.value.bank = bankName;
     return this.userForm.value;
+  }
+
+  cleanForm() {
+    this.userForm.reset();
   }
 
 }
