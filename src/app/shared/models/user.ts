@@ -1,8 +1,6 @@
-import { Bank } from "./bank";
-
 export interface User {
   account: string;
-  bank: Bank;
+  bank:  string;
   email: string;
   name: string;
   numberAccount: number;
