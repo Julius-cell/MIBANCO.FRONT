@@ -27,7 +27,7 @@
       </div>
       <div class="col-6">
         <label for="amount">Monto</label>
-        <p-inputNumber [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('amount')}" formControlName="amount" [min]="0" mode="currency" currency="CLP" prefix="$"></p-inputNumber>
+        <p-inputNumber [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('amount')}" formControlName="amount" [min]="1" mode="currency" currency="CLP" prefix="$"></p-inputNumber>
       </div>
     </div>
   </form>
