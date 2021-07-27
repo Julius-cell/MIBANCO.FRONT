@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BankService } from '../services/bank.service';
 
 @Component({
   selector: 'app-historial',
@@ -17,9 +18,19 @@ export class HistorialComponent implements OnInit {
 
   public transfers: any[] = [];
 
-  constructor() { }
+  constructor(private bankService: BankService) { }
 
   ngOnInit(): void {
+    this.getTransfers();
+  }
+
+  getTransfers() {
+    this.bankService.getTransfers().subscribe(res => {
+      console.log(res);
+      this.transfers = res;
+    }, (err: Error) => {
+      console.log(err);
+    });
   }
 
 }

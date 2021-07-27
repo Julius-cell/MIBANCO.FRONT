@@ -10,12 +10,24 @@
           </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-transfer let-columns="columns">
+      <ng-template pTemplate="body" let-transfer>
         <tr>
-          <td *ngFor="let col of columns">
-              {{transfer[col.field]}}
+          <td class="text-center">
+            {{transfer.user.name | titlecase}}
           </td>
-      </tr>
+          <td class="text-center">
+            {{transfer.user.rut}}
+          </td>
+          <td class="text-center">
+            {{transfer.user.bank}}
+          </td>
+          <td class="text-center">
+            {{transfer.user.account | titlecase}}
+          </td>
+          <td class="text-center">
+            {{transfer.amount}}
+          </td>
+        </tr>
       </ng-template>
       <ng-template pTemplate="emptymessage" let-columns>
         <tr>
