@@ -25,12 +25,12 @@
     </div>
     <div class="col-6">
       <label for="amount">Monto</label>
-      <p-inputNumber [min]="0" mode="currency" currency="CLP" prefix="$"></p-inputNumber>
+      <p-inputNumber #amount [min]="0" mode="currency" currency="CLP" prefix="$"></p-inputNumber>
     </div>
   </div>
 
   <div class="flex justify-content-center">
-    <p-button label="Transferir"></p-button>
+    <p-button (click)="transferAmount(amount.value)" label="Transferir"></p-button>
   </div>
 
 </div>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 import { Bank } from 'src/app/shared/models/bank';
+import { Transfer } from 'src/app/shared/models/transfer';
 import { User } from 'src/app/shared/models/user';
 import { environment } from 'src/environments/environment';
 
@@ -28,6 +29,10 @@ export class BankService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}v1/user`)
     .pipe(pluck('data'));
+  }
+
+  createTransfer(transfer: Transfer): Observable<Transfer> {
+    return this.http.post<Transfer>(`${this.baseUrl}v1/transfer`, transfer);
   }
 
 }
