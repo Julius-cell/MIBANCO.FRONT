@@ -50,7 +50,7 @@ export class TransferComponent implements OnInit {
     const userId = this.userSelected._id!;
     return {
       amount,
-      userId
+      user: userId
     }
   }
 
