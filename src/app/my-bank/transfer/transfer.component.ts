@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Transfer } from 'src/app/shared/models/transfer';
 import { User } from 'src/app/shared/models/user';
 import { BankService } from '../services/bank.service';
@@ -10,11 +11,17 @@ import { BankService } from '../services/bank.service';
 })
 export class TransferComponent implements OnInit {
 
+  public transferForm = this.fb.group({
+    user: [''],
+    amount: [0],
+  });
+
   public users: User[] = [];
   public userSuggestions: User[] = [];
   public userSelected!: User;
 
-  constructor(private bankService: BankService) { }
+  constructor(private bankService: BankService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -34,11 +41,10 @@ export class TransferComponent implements OnInit {
 
   setUserSelectedDetails(event: User) {
     this.userSelected = event;
-    console.log(this.userSelected);
   }
 
-  transferAmount(amount: number) {
-    const transfer = this.setTransferData(amount);
+  transferAmount() {
+    const transfer = this.setTransferData();
     this.bankService.createTransfer(transfer).subscribe(res => {
       console.log(res);
     }, (err: Error) => {
@@ -46,12 +52,17 @@ export class TransferComponent implements OnInit {
     })
   }
 
-  setTransferData(amount: number): Transfer {
-    const userId = this.userSelected._id!;
+  setTransferData(): Transfer {
+    const { _id, ...rest } = this.transferForm.value.user;
+    const amount = this.transferForm.value.amount;
     return {
       amount,
-      user: userId
+      user: _id
     }
+  }
+
+  resetTranferForm() {
+    this.transferForm.reset();
   }
 
 }

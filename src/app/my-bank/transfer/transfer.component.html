@@ -1,36 +1,39 @@
 <div class="wrapper">
   <h1>Transferir</h1>
 
-  <div class="p-fluid input-wrapper">
-    <div class="col-6">
-      <label for="search">Buscar Destinatario</label>
-      <p-autoComplete [suggestions]="userSuggestions" (completeMethod)="search($event.query)" field="name" [minLength]="1" (onSelect)="setUserSelectedDetails($event)"></p-autoComplete>
-    </div>
-    <div class="col-7">
-      <h2>Detalle del destinatario</h2>
-      <div class="grid">
-        <div class="col-4">
-          <p>Nombre</p>
-          <p>Correo</p>
-          <p>Banco</p>
-          <p>Tipo de cuenta</p>
-        </div>
-        <div class="col-8">
-          <p>: {{userSelected?.name | titlecase}}</p>
-          <p>: {{userSelected?.email}}</p>
-          <p>: {{userSelected?.bank | titlecase}}</p>
-          <p>: {{userSelected?.account | titlecase}}</p>
+  <form [formGroup]="transferForm">
+    <div class="p-fluid input-wrapper">
+      <div class="col-6">
+        <label for="search">Buscar Destinatario</label>
+        <p-autoComplete formControlName="user" [suggestions]="userSuggestions" (completeMethod)="search($event.query)" field="name"
+          [minLength]="1" (onSelect)="setUserSelectedDetails($event)"></p-autoComplete>
+      </div>
+      <div class="col-7">
+        <h2>Detalle del destinatario</h2>
+        <div class="grid">
+          <div class="col-4">
+            <p>Nombre</p>
+            <p>Correo</p>
+            <p>Banco</p>
+            <p>Tipo de cuenta</p>
+          </div>
+          <div class="col-8">
+            <p>: {{userSelected?.name | titlecase}}</p>
+            <p>: {{userSelected?.email}}</p>
+            <p>: {{userSelected?.bank | titlecase}}</p>
+            <p>: {{userSelected?.account | titlecase}}</p>
+          </div>
         </div>
       </div>
+      <div class="col-6">
+        <label for="amount">Monto</label>
+        <p-inputNumber formControlName="amount" [min]="0" mode="currency" currency="CLP" prefix="$"></p-inputNumber>
+      </div>
     </div>
-    <div class="col-6">
-      <label for="amount">Monto</label>
-      <p-inputNumber #amount [min]="0" mode="currency" currency="CLP" prefix="$"></p-inputNumber>
-    </div>
-  </div>
+  </form>
 
   <div class="flex justify-content-center">
-    <p-button (click)="transferAmount(amount.value)" label="Transferir"></p-button>
+    <p-button (click)="transferAmount(); resetTranferForm()" label="Transferir"></p-button>
   </div>
 
 </div>
