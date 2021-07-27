@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Transfer } from 'src/app/shared/models/transfer';
 import { User } from 'src/app/shared/models/user';
 import { BankService } from '../services/bank.service';
@@ -12,8 +12,8 @@ import { BankService } from '../services/bank.service';
 export class TransferComponent implements OnInit {
 
   public transferForm = this.fb.group({
-    user: [''],
-    amount: [0],
+    user: ['', Validators.required],
+    amount: [, Validators.required],
   });
 
   public users: User[] = [];
@@ -63,6 +63,14 @@ export class TransferComponent implements OnInit {
 
   resetTranferForm() {
     this.transferForm.reset();
+  }
+
+  checkInvalidField(field: string) {
+    return this.transferForm.controls[field].touched && this.transferForm.controls[field].invalid;
+  }
+
+  validateForm(): boolean {
+    return this.transferForm.invalid;
   }
 
 }

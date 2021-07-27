@@ -6,7 +6,7 @@
       <div class="col-6">
         <label for="search">Buscar Destinatario</label>
         <p-autoComplete formControlName="user" [suggestions]="userSuggestions" (completeMethod)="search($event.query)" field="name"
-          [minLength]="1" (onSelect)="setUserSelectedDetails($event)"></p-autoComplete>
+          [minLength]="1" (onSelect)="setUserSelectedDetails($event)" [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('user')}"></p-autoComplete>
       </div>
       <div class="col-7">
         <h2>Detalle del destinatario</h2>
@@ -27,13 +27,13 @@
       </div>
       <div class="col-6">
         <label for="amount">Monto</label>
-        <p-inputNumber formControlName="amount" [min]="0" mode="currency" currency="CLP" prefix="$"></p-inputNumber>
+        <p-inputNumber [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('amount')}" formControlName="amount" [min]="0" mode="currency" currency="CLP" prefix="$"></p-inputNumber>
       </div>
     </div>
   </form>
 
   <div class="flex justify-content-center">
-    <p-button (click)="transferAmount(); resetTranferForm()" label="Transferir"></p-button>
+    <p-button [disabled]="validateForm()" (click)="transferAmount(); resetTranferForm()" label="Transferir"></p-button>
   </div>
 
 </div>
