@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Bank } from 'src/app/shared/models/bank';
 import { User } from 'src/app/shared/models/user';
 import { BankService } from '../services/bank.service';
@@ -12,13 +12,13 @@ import { BankService } from '../services/bank.service';
 export class NewComponent implements OnInit {
 
   public userForm = this.fb.group({
-    rut: [''],
-    name: [''],
-    email: [''],
-    phone: [''],
-    bank: [],
-    account: [''],
-    numberAccount: [''],
+    rut: ['', Validators.required],
+    name: ['', Validators.required],
+    email: ['', Validators.required],
+    phone: [, Validators.required],
+    bank: [, Validators.required],
+    account: ['', Validators.required],
+    numberAccount: [, Validators.required],
   });
 
   public banks: Bank[] = [];
@@ -55,6 +55,14 @@ export class NewComponent implements OnInit {
 
   cleanForm() {
     this.userForm.reset();
+  }
+
+  checkInvalidField(field: string) {
+    return this.userForm.controls[field].touched && this.userForm.controls[field].invalid;
+  }
+
+  validateForm(): boolean {
+    return this.userForm.invalid;
   }
 
 }

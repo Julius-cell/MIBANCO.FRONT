@@ -5,37 +5,37 @@
     <div class="p-fluid grid input-wrapper">
       <div class="col-6">
         <label for="rut">RUT</label>
-        <input formControlName="rut" type="text" id="rut" pInputText>
+        <input [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('rut')}" formControlName="rut" type="text" id="rut" pInputText>
       </div>
       <div class="col-6 md-6">
         <label for="name">Nombre</label>
-        <input formControlName="name" type="text" id="name" pInputText>
+        <input [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('name')}" formControlName="name" type="text" id="name" pInputText>
       </div>
       <div class="col-6 md-6">
         <label for="email">Correo</label>
-        <input formControlName="email" type="text" id="email" pInputText>
+        <input [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('email')}" formControlName="email" type="text" id="email" pInputText>
       </div>
       <div class="col-6 md-6">
         <label for="phone">Telefono</label>
-        <p-inputNumber formControlName="phone" id="phone" [useGrouping]="false"></p-inputNumber>
+        <p-inputNumber [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('phone')}" formControlName="phone" id="phone" [useGrouping]="false"></p-inputNumber>
       </div>
       <div class="col-6 md-6">
         <label for="bank">Banco</label>
-        <p-dropdown formControlName="bank" [options]="banks" placeholder="Select a Bank" id="bank" [showClear]="true" optionLabel="name"></p-dropdown>
+        <p-dropdown [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('bank')}" formControlName="bank" [options]="banks" placeholder="Select a Bank" id="bank" [showClear]="true" optionLabel="name"></p-dropdown>
       </div>
       <div class="col-6 md-6">
         <label for="account">Tipo de cuenta</label>
-        <input formControlName="account" type="text" id="account" pInputText>
+        <input [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('account')}" formControlName="account" type="text" id="account" pInputText>
       </div>
       <div class="col-6 md-6">
         <label for="numberAccount">N° de cuenta</label>
-        <p-inputNumber formControlName="numberAccount" id="numberAccount" [useGrouping]="false"></p-inputNumber>
+        <p-inputNumber [ngClass]="{'ng-invalid ng-dirty': checkInvalidField('numberAccount')}" formControlName="numberAccount" id="numberAccount" [useGrouping]="false"></p-inputNumber>
       </div>
     </div>
   </form>
 
   <div class="flex justify-content-center">
-    <p-button (click)="createUser(); cleanForm()" label="Crear"></p-button>
+    <p-button [disabled]="validateForm()" (click)="createUser(); cleanForm()" label="Crear"></p-button>
   </div>
 
 </div>
