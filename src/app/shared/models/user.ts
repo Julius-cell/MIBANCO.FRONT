@@ -6,4 +6,5 @@ export interface User {
   numberAccount: number;
   phone: number;
   rut: string;
+  _id?: string;
 }
