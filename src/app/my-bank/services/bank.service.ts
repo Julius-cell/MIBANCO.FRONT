@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 import { Bank } from 'src/app/shared/models/bank';
 import { Transfer } from 'src/app/shared/models/transfer';
@@ -32,7 +32,7 @@ export class BankService {
   }
 
   getTransfers(): Observable<Transfer[]> {
-    return this.http.get<Transfer[]>(`${this.baseUrl}v1/transfer`)
+    return this.http.get<Transfer[]>(`${this.baseUrl}v1/transfe`)
     .pipe(pluck('data'));
   }
 
