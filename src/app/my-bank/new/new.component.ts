@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Bank } from 'src/app/shared/models/bank';
 import { User } from 'src/app/shared/models/user';
 import { BankService } from '../services/bank.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new',
@@ -41,7 +42,12 @@ export class NewComponent implements OnInit {
   createUser() {
     const user = this.getUserFormData();
     this.bankService.createUser(user).subscribe(res => {
-      console.log(res);
+      Swal.fire({
+        title: 'Success!',
+        text: 'The request has been successful!',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      });
     }, (err: Error) => {
       console.warn(err);
     });

@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Transfer } from 'src/app/shared/models/transfer';
 import { User } from 'src/app/shared/models/user';
 import { BankService } from '../services/bank.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-transfer',
@@ -46,7 +47,12 @@ export class TransferComponent implements OnInit {
   transferAmount() {
     const transfer = this.setTransferData();
     this.bankService.createTransfer(transfer).subscribe(res => {
-      console.log(res);
+      Swal.fire({
+        title: 'Success!',
+        text: 'The request has been successful!',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      });
     }, (err: Error) => {
       console.warn(err);
     })
