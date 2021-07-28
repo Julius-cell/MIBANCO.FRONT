@@ -32,7 +32,7 @@ export class BankService {
   }
 
   getTransfers(): Observable<Transfer[]> {
-    return this.http.get<Transfer[]>(`${this.baseUrl}v1/transfe`)
+    return this.http.get<Transfer[]>(`${this.baseUrl}v1/transfer`)
     .pipe(pluck('data'));
   }
 

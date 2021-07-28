@@ -4,14 +4,14 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { SharedModule } from '../shared/shared.module';
 import { MyBankRoutingModule } from './my-bank-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { InterceptorService } from './interceptors/interceptor.service';
 
 import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { HistorialComponent } from './historial/historial.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { InterceptorService } from './interceptors/interceptor.service';
 
 
 
@@ -28,7 +28,7 @@ import { InterceptorService } from './interceptors/interceptor.service';
     MyBankRoutingModule,
     SharedModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     {
