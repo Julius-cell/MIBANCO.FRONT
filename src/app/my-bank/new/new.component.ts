@@ -34,7 +34,7 @@ export class NewComponent implements OnInit {
     this.bankService.getBanks().subscribe(res => {
       this.banks = res;
     }, (err: Error) => {
-      console.log(err.message);
+      console.warn(err);
     });
   }
 
@@ -43,7 +43,7 @@ export class NewComponent implements OnInit {
     this.bankService.createUser(user).subscribe(res => {
       console.log(res);
     }, (err: Error) => {
-      console.log(err);
+      console.warn(err);
     });
   }
 

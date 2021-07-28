@@ -28,7 +28,7 @@ export class HistorialComponent implements OnInit {
     this.bankService.getTransfers().subscribe(res => {
       this.transfers = res;
     }, (err: Error) => {
-      console.log(err);
+      console.warn(err);
     });
   }
 

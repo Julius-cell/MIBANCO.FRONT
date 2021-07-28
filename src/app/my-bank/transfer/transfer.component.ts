@@ -48,7 +48,7 @@ export class TransferComponent implements OnInit {
     this.bankService.createTransfer(transfer).subscribe(res => {
       console.log(res);
     }, (err: Error) => {
-      console.log(err);
+      console.warn(err);
     })
   }
 
